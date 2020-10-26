@@ -1,0 +1,9 @@
+/* You can add global styles to this file, and also import other style files */
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; 
+    background-image: url("https://img1.exportersindia.com/product_images/bc-full/2019/4/83540/statuario-premier-marble-1555064417-4849739.jpeg");
+    
+    background-size: cover;
+   
+    /* position: fixed; */
+  }

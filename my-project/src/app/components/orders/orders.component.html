@@ -1,0 +1,59 @@
+<div class="orderCard">
+  <form #orderForm="ngForm">
+    <div class="form-row">
+
+      <div class="form-group col-md-6">
+        <label>city</label>
+        <input type=" text" required #city="ngModel" [class.is-invalid]="city.invalid && city.touched" name="city"
+          class="form-control" (dblclick)="returnCity()"  [(ngModel)]="orderModel.city">
+        <small class="text-danger" [class.d-none]=" city.valid || city.untouched ">please enter your city
+        </small>
+      </div>
+
+      <div class="form-group col-md-6">
+        <label>street</label>
+        <input type=" text" required #street="ngModel" [class.is-invalid]="street.invalid && street.touched" public
+          userStreet name="street" (dblclick)="returnStreet()" class="form-control" 
+          [(ngModel)]="orderModel.street">
+        <small class="text-danger" [class.d-none]=" street.valid || street.untouched ">please enter your street
+        </small>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group col-md-6">
+        <label>creditcard number</label>
+        <input type="text" required #creditCartNumber="ngModel" name="creditCartNumber"
+          [class.is-invalid]="creditCartNumber.invalid && creditCartNumber.touched"
+          [(ngModel)]="orderModel.creditCartNumber" class="form-control">
+        <small class="text-danger" [class.d-none]=" creditCartNumber.valid || creditCartNumber.untouched ">please enter
+          a creditCartNumber</small>
+      </div>
+    </div>
+    <div>
+      <button type="submit" [disabled]="orderForm.form.invalid" class="btn btn-secondary col-md-6"
+          (click)="saveOrder()" data-toggle="modal" data-target="#exampleModal">save and order </button>
+  </div>
+  </form>
+</div>
+
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Order successfully completed</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+    {{messageOrder}}
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary"  routerLink="/" data-dismiss="modal">Thank you</button>
+      </div>
+    </div>
+  </div>
+</div>

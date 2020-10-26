@@ -1,0 +1,21 @@
+<div class="conteiner">
+
+    <div class="row">
+        <div *ngFor="let product of productOnCart" class="card col-6" style="width: 8rem;">
+            <img class="card-img-top" src={{product.img}} alt="" width="20px" height="75px">
+            <div class="card-body">
+                <h6>{{product.name}}</h6>
+                <h6>{{product.size}}</h6>
+                <div>
+                    <h6>price:{{product.price}}$</h6>
+                    <button class="closebtns btn btn-outline-secondary" (click)="delete(product)">×</button>
+                </div>
+            </div>
+        </div>
+        <div>
+            <h6>total price:{{totalPriceProduct}}$</h6>
+            <button type="button" (click)="goBuy()" class="btn btn-primary">go to buy</button>
+        </div>
+    </div>
+
+</div>

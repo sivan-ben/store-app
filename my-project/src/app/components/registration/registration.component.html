@@ -1,0 +1,85 @@
+<div class="myForm">
+    <div>
+        <h1 class="header"> REGISTER</h1>
+    </div>
+    <form #registerForm="ngForm" class="formInputs">
+        <div *ngIf="!showsDiv">
+            <div class="form-group col-md-6">
+                <label>user Id</label>
+                <input type="number" required #userId="ngModel" pattern="^\d{9}$"
+                    [class.is-invalid]="userId.invalid && userId.touched" name="userId" class="form-control"
+                    placeholder="name" [(ngModel)]="registerModel.userId">
+                <small class="text-danger" [class.d-none]="userId.valid || userId.untouched">invalid user id</small>
+            </div>
+            <div class="form-group col-md-8">
+                <label>email</label>
+                <input type=" text" name="email" required #email="ngModel"
+                    pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
+                    [class.is-invalid]="email.invalid && email.touched" class="form-control" placeholder="email"
+                    [(ngModel)]="registerModel.email">
+                <small class="text-danger" [class.d-none]="email.valid || email.untouched">invalid email</small>
+            </div>
+
+            <div class="form-group col-md-6">
+                <label>password</label>
+                <input type="password" name="password" minlength="3" required #password="ngModel"
+                    [class.is-invalid]="password.invalid && password.touched" class="form-control"
+                    placeholder="password" [(ngModel)]="registerModel.password">
+                <small class="text-danger" [class.d-none]="password.valid || password.untouched">invalid
+                    password</small>
+            </div>
+            <div class="form-group col-md-6">
+                <label>password confirm</label>
+                <input type="password" required #passwordConfirm="ngModel"
+                    [class.is-invalid]="passwordConfirm.invalid && passwordConfirm.touched || password.value !== passwordConfirm.value"
+                    name="passwordConfirm" class="form-control" placeholder="userName"
+                    [(ngModel)]="registerModel.passwordConfirm">
+                <small class="text-danger" [class.d-none]=" password.value === passwordConfirm.value ">password
+                    dosn't match</small>
+            </div>
+            <div>
+                <span class="text-danger">{{errId}}</span>
+            </div>
+            <div>
+                <button [disabled]="registerForm.form.invalid" type="submit" (click)="stepOne()"
+                    class="btn btn-secondary col-md-4">next</button>
+            </div>
+        </div>
+
+
+        <div *ngIf="showsDiv">
+            <div class="form-group col-md-6">
+                <label>name</label>
+                <input type="text" required #userName="ngModel"
+                    [class.is-invalid]="userName.invalid && userName.touched" name="userName" class="form-control"
+                    placeholder="name" [(ngModel)]="registerModel.userName">
+            </div>
+            <div class="form-group col-md-6">
+                <label>last name</label>
+                <input type=" text" required #name="ngModel" [class.is-invalid]="name.invalid && name.touched"
+                    name="lastName" class="form-control" placeholder="last name" [(ngModel)]="registerModel.lastName">
+            </div>
+            <div class="form-group col-md-6">
+                <label>street</label>
+                <input type=" text" required #street="ngModel" [class.is-invalid]="street.invalid && street.touched"
+                    name="street" class="form-control" placeholder="street" [(ngModel)]="registerModel.street">
+            </div>
+            <div class="form-group col-md-6">
+                <label>city</label>
+                <select class="form-control col-md-8" required #city="ngModel"
+                    [class.is-invalid]="city.invalid && city.touched" name="city" [(ngModel)]="registerModel.city">
+                    <option *ngFor="let city of cities">
+                        {{city}}
+                    </option>
+                </select>
+                <small class="text-danger" [class.d-none]=" city.valid || city.untouched ">please select a city</small>
+            </div>
+            <div>
+                <button type="submit" [disabled]="registerForm.form.invalid" class="btn btn-secondary col-md-6"
+                    (click)="saveUser()">save and register </button>
+            </div>
+        </div>
+
+    </form>
+
+</div>

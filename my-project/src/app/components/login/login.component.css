@@ -1,0 +1,18 @@
+.myForm{
+    text-align: -webkit-center;
+    /* position: fixed; */
+    margin-top: 176px;
+    margin-left: 30%;
+}
+.formInputs{
+    /* border: 2px solid white; */
+    width: 453px;
+    height: 500px;
+    padding: 8px;
+    color: black;
+
+}
+.header{
+    color: black;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}

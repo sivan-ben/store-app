@@ -1,0 +1,17 @@
+<div class="conteiner">
+    <div class="row">
+        <div *ngFor="let product of products" class="card col-6 col-md-4" style="width: 18rem;">
+            <img src={{product.img}} class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">{{product.productName}}</h5>
+                <h5 class="card-title">price:{{product.price}}$</h5>
+                <form [formGroup]="cardForm">
+                    <label *ngFor="let size of product.sizeInStock" class="radio-inline"><input type="radio"
+                            name="sizeSelected" formControlName="sizeSelected"  value={{size}}>{{size}}</label>
+
+                </form>
+                <button (click)="addToCart(product)" class="btn btn-outline-secondary">add to cart</button>
+            </div>
+        </div>
+    </div>
+</div>

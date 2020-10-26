@@ -1,0 +1,26 @@
+<div class="myForm">
+    <div>
+        <h1 class="header"> LOGIN</h1>
+    </div>
+
+    <form [formGroup]="loginForm" class="formInputs">
+        <div class="form-group col-md-6">
+            <label for=" exampleInputEmail1">user Id</label>
+            <input formControlName="userId" type="text" class="form-control" placeholder="user id">
+        </div>
+        <div class="form-group col-md-6">
+            <label>password</label>
+            <input type="password" formControlName="password" class="form-control" placeholder="password">
+        </div>
+        <div>
+            <span class="text-danger">{{loginMessage}}</span>
+        </div>
+        <div>
+            <a routerLink="/registration">You haven't registered yet?</a>
+        </div>
+        <div>
+            <button type="button" (click)="loginUser()" class="btn btn-secondary col-md-4">save </button>
+        </div>
+    </form>
+
+</div>

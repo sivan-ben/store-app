@@ -1,0 +1,13 @@
+
+.card{
+    display: inline-block;
+    /* margin-left: 14px; */
+    text-align-last: center;
+    margin: 22px;
+    margin-left: 10%;
+}
+.conteiner{
+    margin-top: 15%;
+}
+
+

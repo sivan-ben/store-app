@@ -1,0 +1,70 @@
+<div class="wrapper">
+    <!-- Sidebar  -->
+    <nav id="sidebar">
+        <div id="dismiss">
+            <i class="fas fa-arrow-left"></i>
+        </div>
+
+        <div class="sidebar-header">
+            <h3>welcome</h3>
+        </div>
+
+        <ul class="list-unstyled components">
+            <p>start your shopping</p>
+            <li class="active">
+                <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false">Home</a>
+                <ul class="collapse list-unstyled" id="homeSubmenu">
+                    <li>
+                        <a routerLink="login">Login</a>
+                    </li>
+                    <li>
+                        <a routerLink="registration">Register</a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false">Categotys</a>
+                <ul class="collapse list-unstyled" id="pageSubmenu">
+                    <li class="nav-item" *ngFor="let categoty of categorys">
+                        <a class="nav-link" routerLink="products" (click)="goToCategory(categoty)"> {{categoty}}</a>
+                    </li>
+                </ul>
+            </li>
+
+            <li>
+                <a href="#cart" data-toggle="collapse" aria-expanded="false">Cart</a>
+                <ul class="collapse list-unstyled" id="cart">
+                    <app-cart></app-cart>
+                </ul>
+            </li>
+
+            <li>
+                <a class="nav-link" (click)="logOut()" routerLink="/">logOut</a>
+            </li>
+        </ul>
+
+
+    </nav>
+
+    <div id="content">
+
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="container-fluid">
+
+                <button type="button" id="sidebarCollapse" class="btn btn-outline-secondary">
+                    <i class="fas fa-align-left"></i>
+                    <span> start shopping</span>
+                </button>
+           
+                    <form [formGroup]="searchForm" class="formInputs">
+                        <input type="text" class="form-control search " formControlName="search" placeholder="search">
+                    </form>
+                    <button type="button" routerLink="products" class="btn btn-secondary  "
+                    (click)="search()">search</button>
+           
+            </div>
+        </nav>
+
+    </div>
+    <router-outlet></router-outlet>
+</div>
